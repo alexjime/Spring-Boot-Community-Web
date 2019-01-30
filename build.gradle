@@ -36,5 +36,5 @@ dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
     runtime('org.springframework.boot:spring-boot-devtools')
     compileOnly('org.projectlombok:lombok')
-    /*testCompile('org.springframework.boot:spring-boot-starter-test')*/
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

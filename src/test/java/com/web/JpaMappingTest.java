@@ -5,7 +5,6 @@ import com.web.domain.User;
 import com.web.domain.enums.BoardType;
 import com.web.repository.BoardRepository;
 import com.web.repository.UserRepository;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,8 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by KimYJ on 2017-07-12.
@@ -56,15 +54,15 @@ public class JpaMappingTest {
     @Test
     public void 제대로_생성_됐는지_테스트() {
         User user = userRepository.findByEmail(email);
-        assertThat(user.getName(), is("havi"));
-        assertThat(user.getPassword(), is("test"));
-        assertThat(user.getEmail(), is(email));
+        assertThat(user.getName()).isEqualTo("havi");
+        assertThat(user.getPassword()).isEqualTo("test");
+        assertThat(user.getEmail()).isEqualTo(email);
 
         Board board = boardRepository.findByUser(user);
-        assertThat(board.getTitle(), is(boardTestTitle));
-        assertThat(board.getSubTitle(), is("서브 타이틀"));
-        assertThat(board.getContent(), is("컨텐츠"));
-        assertThat(board.getBoardType(), is(BoardType.free));
+        assertThat(board.getTitle()).isEqualTo(boardTestTitle);
+        assertThat(board.getSubTitle()).isEqualTo("서브 타이틀");
+        assertThat(board.getContent()).isEqualTo("컨텐츠");
+        assertThat(board.getBoardType()).isEqualTo(BoardType.free);
     }
 
 }
