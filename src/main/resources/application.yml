@@ -6,11 +6,16 @@ spring:
 #    driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create
-  h2:
-    console:
-      enabled: true
-      path: /console
+      ddl-auto: create-drop
+#  h2:
+#    console:
+#      enabled: true
+#      path: /console
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/springboot
+    username: postgres
+    password: pass
   devtools:
     livereload:
       enabled: true

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name="users")
 public class User implements Serializable {
 
     @Id
